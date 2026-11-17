@@ -1,0 +1,110 @@
+iSERVU Ride Sharing Project — Bug Report,,,,,,,,,,,,,
+Rider & Driver Apps  ·  Issues affecting both Rider and Driver apps  ,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Bug ID,Reported Date,Module,Platform,Bug Title,Description,Steps to Reproduce,Expected Result,Actual Result,Severity,Priority,QA Status,DEV Status,Attachment
+RD-01,16-Aug-2026,Push Notifications,iOS,Push notifications not working properly on iOS,Push notifications are not delivered reliably to the iOS Rider and Driver apps.,"1. Install both apps on iOS and allow notifications
+2. Trigger events (ride request, acceptance, chat message)
+3. Check whether push notifications arrive",All push notifications should be delivered reliably on iOS.,Push notifications do not work properly.,Major,High,Closed,Fixed,
+RD-02,16-Aug-2026,Authentication,iOS,Google sign-up and login buttons do not work,Tapping the Google sign-up or login buttons does nothing in the Rider and Driver apps.,"1. Open the Rider or Driver App
+2. Tap ""Sign up with Google"" or ""Login with Google""",The Google sign-in flow should open and complete sign-up / login.,The buttons do not work.,Major,High,Closed,Fixed,
+RD-03,16-Aug-2026,Branding,iOS & Android,"Old brand name ""ReadyRide"" shown in the apps","The source code still has ""ReadyRide"" references and wrong branding appears in the apps (per client screenshot).","1. Open the Rider and Driver apps
+2. Go through screens, texts and notifications
+3. Look for ""ReadyRide""","All ""ReadyRide"" references should be replaced with ""iSERVU"".","""ReadyRide"" branding is displayed.",Major,High,Closed,Fixed,
+RD-04,18-Aug-2026,UI Text,Rider & Driver Apps,"Incorrect label – should read ""Card""","A label marked in the client screenshot shows the wrong text; it should read ""Card"".","1. Open the screen shown in the client screenshot
+2. Check the marked label","The label should read ""Card"".",The label shows different text.,Minor,Low,Closed,Fixed,
+RD-05,18-Aug-2026,UI Text – Terminology,Rider & Driver Apps,"""Order"" wording used instead of ""Trip""","Messages use ""order"" instead of ""trip"", e.g. ""This order has been cancelled"".","1. Book a ride and cancel it
+2. Read the cancellation message
+3. Check other screens for ""order""","""This trip has been cancelled""; ""order"" replaced with ""trip"" throughout.","""This order has been cancelled"" is displayed.",Minor,Medium,Closed,Fixed,
+RD-06,19-Aug-2026,UI Text – Payment,Rider & Driver Apps,"Gateway name ""Fygaro"" shown instead of ""Card""","The payment option is labelled ""Fygaro"" (the gateway name) in both apps.","1. Open payment method selection in the Rider App and trip payment info in the Driver App
+2. Read the payment labels","The option should be labelled ""Card"".","""Fygaro"" is displayed.",Minor,Medium,Closed,Fixed,
+RD-07,19-Aug-2026,Schedule Rides,Rider & Driver Apps,Schedule Rides feature does not work,Riders cannot schedule rides for later and the scheduled ride flow does not work end-to-end.,"1. In the Rider App, choose Schedule / Later
+2. Pick a future date and time and confirm
+3. Check Scheduled Rides in both apps",Riders can schedule rides; scheduled rides appear for drivers and follow the scheduled flow.,The feature does not work.,Major,High,Closed,Fixed,
+RD-08,19-Aug-2026,Pricing – Currency,Rider & Driver Apps,Wrong currency symbol displayed,"Amounts in the apps are not shown with the ""$"" symbol.","1. Open both apps
+2. Check fares, wallet and earnings amounts","All amounts should be shown with ""$"".",A different currency symbol is shown.,Major,Medium,Closed,Fixed,
+RD-09,24-Aug-2026,UI Text – Labels,iOS & Android,"Raw keys / lowercase labels displayed (""top_up"", ""schedule"", ""now"", ""later"")",Several labels show raw keys or lowercase text instead of proper labels.,"1. Open both apps
+2. Check the wallet top-up button and the Schedule / Now / Later options","""top_up"" → ""Top-up"", ""schedule"" → ""Schedule"", ""now"" → ""Now"", ""later"" → ""Later"".",Raw / lowercase labels are shown.,Minor,Low,Closed,Fixed,
+RD-10,24-Aug-2026,Branding,Rider & Driver Apps,"Missing space between ""driver"" and ""iSERVU""","The words ""driver"" and ""iSERVU"" are joined without a space.","1. Find the text containing ""driver"" and ""iSERVU""
+2. Check the spacing","There should be a space between ""driver"" and ""iSERVU"".",The words are joined.,Trivial,Low,Closed,Fixed,
+RD-11,06-Sep-2026,Parcel Delivery – Payment,Rider & Driver Apps / Backend,Parcel delivery payment not working – sender is not charged,"Parcel delivery payment does not work properly. Payment methods / gateway are not connected to parcel delivery, so the sender is not charged.","1. Send a parcel from the Rider App with each payment method (Cash, Wallet, Card)
+2. Complete the delivery in the Driver App
+3. Check the sender's payment / wallet","All payment methods should be connected to parcel delivery, with the charge taken after delivery.",The sender is not charged.,Critical,High,Closed,Fixed,
+RD-12,06-Sep-2026,Parcel Delivery – OTP,Rider & Driver Apps,Any random OTP completes the parcel delivery,The delivery OTP is not validated; any random code completes the delivery.,"1. Send a parcel from the Rider App
+2. In the Driver App, reach the delivery completion step
+3. Enter a random OTP",Delivery should complete only with the correct OTP sent to the receiver's account.,Any random OTP completes the delivery.,Critical,High,Closed,Fixed,
+RD-13,10-Sep-2026,Localization,iOS,Selecting French or Spanish has no effect on iOS,"French has been added to the iOS apps, but selecting French or Spanish does not change the app language.","1. Open the iOS Rider or Driver App
+2. Go to Settings → Language
+3. Select French or Spanish",The app should switch to the selected language.,Nothing happens; the app stays in English.,Major,High,Closed,Fixed,
+RD-14,10-Sep-2026,Parcel Delivery – OTP,Rider & Driver Apps,OTP input locks after one wrong entry,"After one wrong OTP, the input locks and a new code cannot be entered.","1. Reach the parcel delivery OTP step
+2. Enter a wrong OTP
+3. Try to enter the correct OTP",The user should be able to enter a new code after a wrong attempt.,The input is locked.,Major,High,Closed,Fixed,
+RD-15,10-Sep-2026,Dues / Payment,Rider & Driver Apps,"""Pay for order"" popup appears with no way to pay dues","A ""Pay for order"" popup appears but the app offers no way to pay the outstanding amount.","1. Log in as a rider/driver with outstanding dues
+2. Observe the ""Pay for order"" popup
+3. Try to pay","Dues can be paid in-app: the Online button opens the payment gateway; for cash trips, the rider can confirm cash was paid after the trip.",The popup has no payment option.,Major,High,Closed,Fixed,
+RD-16,10-Sep-2026,Localization,Android,Client-edited English text files not applied to Android apps,"The English JSON files edited by the client (Rider & Driver) were not uploaded to the Android apps, so the new text does not appear.","1. Open the Android Rider and Driver apps
+2. Compare on-screen text with the client-edited English JSON files",The Android apps should use the client-edited English JSON files.,Old English text is shown.,Minor,Medium,Closed,Fixed,
+RD-17,13-Sep-2026,Notifications – Badge,Rider & Driver Apps,App icon badge shows unread notifications when there are none,The external notification badge shows unread notifications even when the unread count is zero.,"1. Read / clear all notifications in the app
+2. Close the app
+3. Check the app icon badge",No badge should show when there are zero unread notifications.,The badge still shows unread notifications.,Minor,Medium,Closed,Fixed,
+RD-18,15-Sep-2026,Chat – Indicator,Rider & Driver Apps,New message indicator works inconsistently,The new chat message indicator appears only sometimes.,"1. Start a ride and open chat on both apps
+2. Send several messages from each side
+3. Observe the indicator",The indicator should appear for every new unread message.,The indicator works inconsistently.,Minor,Medium,Closed,Fixed,
+RD-19,17-Sep-2026,Trip History – Timestamps,Rider & Driver Apps,Trip history shows random characters instead of timestamps,"Trip history shows random characters instead of a clear start date and time, and timestamps do not match for each ride.","1. Complete a few trips
+2. Open Trip History in both apps
+3. Check each trip's date and time","Each trip should show a clear start date and time, matching across both apps.",Random characters are shown and times do not match.,Major,Medium,Closed,Fixed,
+RD-20,20-Sep-2026,Chat – Presence,Rider & Driver Apps,Chat online/offline status is incorrect,An online user is shown as offline in chat.,"1. Keep both apps open and online
+2. Open chat on both sides
+3. Check the status shown",Online/offline status should reflect real-time presence.,An online user appears offline.,Minor,Medium,Closed,Fixed,
+RD-21,20-Sep-2026,Chat – Notifications,Rider & Driver Apps,New chat message notification arrives only sometimes,Notifications are delivered for some chat messages only.,"1. Start a chat between rider and driver
+2. Send several messages while the receiver is off the chat screen
+3. Count the notifications",A notification should arrive for every message.,Notifications arrive only sometimes.,Major,Medium,Closed,Fixed,
+RD-22,20-Sep-2026,Chat – Read Receipts,Rider & Driver Apps,"Message marked ""Read/Seen"" before the receiver opens it",Messages show Read/Seen before the receiver actually opens them.,"1. Send a message from one app
+2. Do not open the chat on the other app
+3. Check the status on the sender side",Read/Seen should appear only after the receiver opens the message.,The message is marked Read/Seen too early.,Minor,Medium,Closed,Fixed,
+RD-23,20-Sep-2026,UI Text,Rider & Driver Apps,"""Ride overview"" title is not capitalised","The title is shown as ""Ride overview"".","1. Open the Ride Overview section
+2. Read the title","Title should read ""Ride Overview"".","Title reads ""Ride overview"".",Trivial,Low,Closed,Fixed,
+RD-24,23-Sep-2026,Tips,Rider & Driver Apps,Tips feature is not active,Riders cannot tip drivers because the Tips feature is inactive.,"1. Complete a trip in the Rider App
+2. Look for the option to tip the driver","Riders should be able to tip drivers, and the tip should reach the driver.",No tip option is available.,Major,High,Closed,Fixed,
+RD-25,27-Sep-2026,Open in App / Deep Link,iOS,"""Open in App"" button leads to ""Page Not Found""","Clicking ""Open in App"" redirects to a Page Not Found screen instead of the correct page in the app.","1. On an iOS device with the app installed, open a shared iSERVU link
+2. Tap ""Open in App""",The deep link should open the correct page in the app.,"A ""Page Not Found"" screen is shown.",Major,High,Closed,Fixed,"https://prnt.sc/GyTx4vUwW-ys 
+https://prnt.sc/lDkHrOZP36HP "
+RD-26,27-Sep-2026,Time Zone,Rider & Driver Apps,Apps do not follow the configured time zone,"The apps do not use the configured time zone consistently, causing wrong ride times, scheduled ride times and other time-based data.","1. Set the time zone in the Admin Panel
+2. Book a ride and schedule a ride
+3. Compare times in ride details, history and scheduled rides with the actual time",All time-based features should use the configured time zone consistently.,Times are shown in the wrong time zone.,Major,High,Closed,Fixed,https://prnt.sc/_C4MNqh1mpN5 
+RD-27,27-Sep-2026,App Download,Rider & Driver Apps,"""Download on the App Store"" button does not detect the device","The download button always says ""Download on the App Store"" and does not send Android users to the Play Store.","1. Open the page with the download button on an Android device and tap it
+2. Repeat on an iOS device","Button reads ""Download the App"" and redirects by device (iOS → App Store, Android → Play Store) using valid links.",The button always points to the App Store.,Major,High,Closed,Fixed,https://prnt.sc/qpw-KOBg_vRW 
+RD-28,28-Sep-2026,Payment Method Indicator,iOS & Android,Payment method indicator shows the wrong method,"The payment method indicator does not match the trip, e.g. a trip started with Card shows Wallet.","1. Book a ride using Card
+2. Check the payment method on each trip page in both apps",Every page should show the trip's actual method (Card / Cash / Wallet).,A Card trip shows Wallet.,Major,High,Closed,Fixed,https://prnt.sc/sgtd2nq96eXu 
+RD-29,28-Sep-2026,Notifications – Language,Rider & Driver Apps,"""Dispute Resolved"" notification contains non-English text",The Dispute Resolved notification shows non-English text together with the English message.,"1. Raise a dispute and resolve it from the Admin Panel
+2. Check the notification in both apps",The notification should contain English text only.,Non-English text appears with the English message.,Minor,High,Closed,Fixed,https://prnt.sc/fEyNqv94UmG_ 
+RD-30,04-Oct-2026,Help Center – FAQs,Rider & Driver Apps / Admin Panel,Rider and Driver FAQs are mixed up between the apps,"The Driver App showed Rider FAQs instead of the new Driver FAQs, Driver FAQs appeared in the Rider Help Center, and later the mapping was found reversed.","1. In the Admin Panel, create FAQs for the Driver App and for the Rider App
+2. Open Help Center → FAQs in the Driver App
+3. Open Help Center → FAQs in the Rider App","Each app should show only its own FAQs: Driver FAQs in the Driver App, Rider FAQs in the Rider App.",FAQs appear in the wrong app.,Major,High,Closed,Fixed,"https://prnt.sc/hHQBKunO-F1u 
+https://prnt.sc/t-rRIjJy5vlO 
+https://prnt.sc/hEZWsfHkV5qO 
+https://prnt.sc/Banuezuk0rhD "
+RD-31,01-Nov-2026,Notifications – Date & Time,iOS & Android,Notification timestamps show the wrong time,"Notification times are wrong, e.g. a ride request sent at 8:26 AM showed 12:24 PM. Time accuracy is reported as wrong elsewhere in the apps too.","1. Send a test ride request and note the time
+2. Open the notification in both apps
+3. Compare the displayed time","All timestamps should show the correct local time for the applicable time zone, consistent across apps and platforms.",A request sent at 8:26 AM is shown as 12:24 PM.,Major,High,Closed,Fixed,https://prnt.sc/hcqDzdWsDI5y 
+RD-32,01-Nov-2026,Scheduled / Rescheduled Rides,iOS & Android,Rescheduled pickup time displayed 4 hours off,"After rescheduling, the highlighted pickup time is wrong, e.g. rescheduled for 5:13 PM but shown as 9:13 PM.","1. Schedule a ride
+2. Reschedule it (e.g. to 5:13 PM)
+3. Check the pickup time in the Rider App, Driver App, notifications and Admin Panel",The pickup time should show exactly the rescheduled time (5:13 PM) everywhere.,The pickup time shows 9:13 PM (4-hour difference).,Critical,High,Closed,Fixed,https://prnt.sc/KKTexxZhFMLi 
+RD-33,01-Nov-2026,Trip Details – Pickup Time,iOS & Android,Trip Details page shows an incorrect pickup time,Trip Details shows a pickup time of 12:30 PM that does not match the scheduled or recorded pickup time.,"1. Complete or schedule a trip
+2. Open Trip Details in both apps
+3. Compare the pickup time with the backend trip record","Scheduled, rescheduled (if any) and actual pickup times should be accurate and match backend records.","Pickup time shows 12:30 PM, which is incorrect.",Major,High,Closed,Fixed,https://prnt.sc/lxlI_RNNOcS0 
+RD-34,03-Nov-2026,Push Notifications – Content,iOS & Android,Push notification title and body text are incorrect,Notification titles and body texts are incorrect or badly displayed in the Rider and Driver apps.,"1. Trigger different notification types (ride, payment, chat, admin)
+2. Check the title and body on iOS and Android","Each notification should have a clear, accurate, well-formatted title and body for its type.",Titles / bodies are incorrect or badly formatted.,Major,High,New,Pending,https://prnt.sc/_6akRy4EfMtP 
+RD-35,03-Nov-2026,Legal – Privacy & Terms,iOS & Android,Privacy Policy and Terms of Service links do not open,"The Privacy Policy and Terms of Service links do not work, so users cannot read the legal documents. This must be fixed before the apps can be approved and published.","1. Open the Rider or Driver App
+2. Go to Settings → Legal
+3. Tap Privacy Policy, then Terms of Service",Each link should open the correct legal document on iOS and Android.,The links do not open.,Major,High,Closed,Fixed,
+RD-36,03-Nov-2026,Trip Details – Timestamps,iOS & Android,Trip start time is recorded as the end time,Trip timestamps are wrong: a trip that started at 2:07 PM and ended at 2:12 PM shows a start time of 2:12 PM.,"1. Start a trip and note the time (e.g. 2:07 PM)
+2. End the trip and note the time (e.g. 2:12 PM)
+3. Open Trip Details in the Rider App, Driver App and Admin Panel","Start 2:07 PM, End 2:12 PM, Duration 5 min – consistent everywhere. The fix must not affect email notification times or scheduled / rescheduled ride times.",Start time is shown as 2:12 PM.,Major,High,Closed,Fixed,"https://prnt.sc/E7Fgpa4LFQb3 
+https://prnt.sc/ztJ0O-AA-iro "
+RD-37,08-Nov-2026,Authentication / Profile,iOS & Android,Another user's name and phone shown after login (privacy issue),"After logging in with support@iservu.app, the app first showed a different user's name and phone number. The correct profile appeared only after about 60–120 seconds. This is a privacy and data-security risk.","1. Log in to an account
+2. Log out and log in with a different account
+3. Observe the profile name and phone right after login","The authenticated account's profile should appear immediately. Another user's data must never appear, even briefly or after switching accounts.",Another user's name and phone number are shown for 60–120 seconds.,Critical,High,Closed,Fixed,Video: https://drive.google.com/file/d/1k7AYjOwiRmecwLL1Z24t3dTUutUOJ6-R/view?usp=sharing 
+RD-38,08-Nov-2026,Add Stop – Wait Timer & Fare,iOS & Android,Add Stop wait timer rounds up and overcharges riders,The Add Stop wait timer rounds partial minutes up: a 1:01 wait was charged as 2 minutes on the trip receipt.,"1. Book a ride with an added stop
+2. As the driver, wait at the stop for 1 min 1 sec
+3. Continue and complete the trip
+4. Check the waiting time and charge on the receipt","Charge completed minutes only (1:01 = 1 min, 5:00 = 5 min, 5:59 = 5 min). Timer, receipt, rider fare and driver earnings must match.",A 1:01 wait is shown and charged as 2 minutes.,Major,High,Closed,Fixed,https://prnt.sc/WfncGVd30ESP 

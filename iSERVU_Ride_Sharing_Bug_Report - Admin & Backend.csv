@@ -1,0 +1,58 @@
+iSERVU Ride Sharing Project — Bug Report,,,,,,,,,,,,,
+"Admin & Backend  ·  Admin Panel, backend, notifications, email & SMS  ",,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Bug ID,Reported Date,Module,Platform,Bug Title,Description,Steps to Reproduce,Expected Result,Actual Result,Severity,Priority,QA Status,DEV Status,Attachment
+AD-01,16-Aug-2026,Payouts,Driver App / Admin Panel,Saving a payout method returns an error,Saving a payout (withdrawal) method returns an error.,"1. Log in as a driver
+2. Go to Payouts / Withdrawal Methods
+3. Add a payout method and tap Save",The payout method should be saved successfully.,An error is returned and the method is not saved.,Major,High,Closed,Fixed,
+AD-02,16-Aug-2026,Settings,Admin Panel,Admin Panel settings do not save,Changes made in Admin Panel settings are not saved when applied.,"1. Log in to the Admin Panel
+2. Change a value in Settings
+3. Click Save / Apply
+4. Reload the page",Settings should be saved and persist after reload.,The settings are not saved.,Major,High,Closed,Fixed,
+AD-03,18-Aug-2026,Ride Numbers,"Rider, Driver & Admin","Ride numbers use the old ""RR"" prefix and include the year","Ride numbers use the old ""RR"" prefix and include ""2026"".","1. Create a ride
+2. Check the ride number in the Rider App, Driver App and Admin Panel","Ride numbers should use ""ISU"" without the year (e.g. ISU-00253).","Ride numbers show ""RR"" with the year.",Minor,Medium,Closed,Fixed,
+AD-04,24-Aug-2026,Points & Rewards – Backend,Backend,"Points are not credited after rides, parcels or referrals","No points are added after completed rides, parcel deliveries or referrals.","1. Complete a ride and a parcel delivery, and refer a new user
+2. Check the rider's points balance","5 points per ride, 5 per parcel delivery, 5 per referral, 10 bonus on joining; points usable for trips at 5 points = $1.",No points are added.,Major,High,Closed,Fixed,
+AD-05,24-Aug-2026,Ride Numbers,Admin Panel,Ride numbers not updated in the Admin Panel,The Admin Panel still shows ride numbers in the old format.,"1. Log in to the Admin Panel
+2. Open the trips list and a trip detail
+3. Check the ride number format",Ride numbers should use the new format (e.g. ISU-00253).,Old-format ride numbers are shown.,Minor,Medium,Closed,Fixed,
+AD-06,24-Aug-2026,Notifications – Wallet Top-up,Backend,"Wallet top-up notification in a foreign language, amount missing ""$""","The wallet top-up notification is in a foreign language and the amount has no ""$"" before it.","1. Top up a user's wallet from the Admin Panel
+2. Check the notification in the app","English text with ""$"" before the amount, e.g. ""Your wallet has just been topped up $2000 by admin"".","Foreign-language text without ""$"".",Minor,Medium,Closed,Fixed,
+AD-07,26-Aug-2026,Payment Methods,Admin Panel & Apps,Payment methods selected in the Admin Panel are not applied in the apps,Payment method settings in the Admin Panel are not reflected in the apps; Cash is still offered when only Wallet and Card are selected.,"1. In the Admin Panel, enable only Wallet and Card
+2. Book a ride in the Rider App
+3. Check the available payment methods",Apps should show only the methods enabled in the Admin Panel.,Cash is still available.,Major,High,Closed,Fixed,
+AD-08,06-Sep-2026,Configuration – Google Cloud,Google Cloud,Google Cloud project name not changed to iSERVU,The Google Cloud project name has not been changed to iSERVU.,"1. Check the project name in Google Cloud Console
+2. Use Google Sign-In in the app and check the app name on the consent screen","The Google project name should be ""iSERVU"".",The old project name is shown.,Minor,Medium,Closed,Fixed,
+AD-09,10-Sep-2026,Parcel Pricing,Admin Panel & Rider – Android,Parcel pricing not linked to the Admin Panel; wrong price on Android,"Parcel pricing is not connected to Admin Panel settings, and the Android Rider App shows wrong parcel prices.","1. Set parcel pricing in the Admin Panel
+2. Create a parcel request in the Android Rider App
+3. Compare the price shown",Parcel prices should be calculated from Admin Panel pricing on every platform.,The Android Rider App shows wrong parcel pricing.,Major,High,Closed,Fixed,
+AD-10,20-Sep-2026,SOS Alerts & Map Setting,Admin Panel & Apps,SOS alerts and location map setting not working,"During the full Admin Panel test, SOS alerts and the location map setting were found not working.","1. Trigger an SOS alert from the app during a trip
+2. Check for the alert in the Admin Panel
+3. Change the location map setting and check the apps","SOS alerts should reach the Admin Panel, the map setting should apply in the apps, and admin and apps should stay in sync.",SOS alerts and the map setting do not work.,Critical,High,Closed,Fixed,
+AD-11,23-Sep-2026,Banners,Admin Panel & Rider,Parcels banner opens Rides instead of Parcels,A banner linked to Parcels opens the Rides screen when its CTA is tapped.,"1. In the Admin Panel, create a banner linked to Parcels
+2. Open the Rider App Home Page
+3. Tap the banner CTA",The CTA should open Parcels.,The Rides screen opens.,Minor,Medium,Closed,Fixed,
+AD-12,27-Sep-2026,Dashboard,Admin Panel,"""View All"" links on the dashboard are not linked",The View All links on the Admin dashboard do not navigate anywhere.,"1. Log in to the Admin Panel
+2. Click each ""View All"" link on the dashboard",Each View All link should open its related page or section.,Clicking the links does nothing.,Minor,High,Closed,Fixed,https://prnt.sc/x-76AI5YqIQ8 
+AD-13,30-Sep-2026,Surge Pricing,Admin Panel & Apps,Surge pricing activates at the wrong times,"Surge pricing turns on outside the start/end times set in the Admin Panel. Example: Morning surge (8:00–9:30 AM) runs 5:00–6:30 AM, 3 hours early.","1. Configure surge slots in the Admin Panel (Morning 8:00–9:30 AM, Afternoon 12:00–1:30 PM, Rush Hour 4:00–5:30 PM, Night 8:00–9:30 PM)
+2. Check surge status in both apps before, during and after each slot","Surge should start and end exactly at the configured times in the Admin Panel time zone, follow schedule changes without code changes, and stay off outside the slots.",Surge activates at wrong times (e.g. 5:00–6:30 AM instead of 8:00–9:30 AM).,Major,High,Closed,Fixed,"https://prnt.sc/MoDdOS226aBL 
+https://prnt.sc/ZqG7TMpiZrbG 
+https://prnt.sc/3S_pedrNq5oV "
+AD-14,03-Oct-2026,Profile Sync,Admin Panel & Rider App,Mobile number updated in the Admin Panel does not show in the Rider App,"When an admin adds or changes a rider's mobile number, the new number does not appear in the Rider App.","1. In the Admin Panel, edit a rider's mobile number and save
+2. Open the Rider App as that rider
+3. Check the profile",The updated number should be saved and shown in the rider's profile.,The old / empty number is shown.,Major,High,Closed,Fixed,https://prnt.sc/9yz8U4p02XXq 
+AD-15,04-Oct-2026,Email Notifications – Sender,Admin Panel / Email,Emails sent from a developer address (lms.razinsoft@gmail.com),Email notifications show lms.razinsoft@gmail.com as the sender.,"1. Trigger any email notification (e.g. registration)
+2. Check the From address of the received email",The From address should be no-reply@iservu.app.,The From address is lms.razinsoft@gmail.com.,Major,High,Closed,Fixed,https://prnt.sc/ViArKCcY3CX4 
+AD-16,08-Oct-2026,Weather Alerts,Admin Panel & Apps,Weather Alert toggle does not hide alerts in the apps,"After turning Weather Alerts OFF in the Admin Panel, alerts still appear in the Rider and Driver apps.","1. Turn Weather Alerts OFF in the Admin Panel
+2. Open and restart both apps
+3. Check for weather alerts","With the toggle OFF, alerts should disappear at once and not return after restart; they should show only when ON and conditions are met.",Alerts still appear with the toggle OFF.,Major,High,Closed,Fixed,https://prnt.sc/isCWB2_VmE9b 
+AD-17,01-Nov-2026,AI Push Notifications – Scheduling,Admin Panel,AI Push Notifications sent several times a day without instruction,AI Push Notifications set to send one morning notification per day to riders also send extra notifications at other times.,"1. In AI Push Notifications, schedule one morning notification per day for riders
+2. Monitor notifications received through the day","Only the configured schedule, frequency and audience should be followed (one notification each morning).",Extra notifications are sent during the day.,Major,High,Closed,Fixed,
+AD-18,08-Nov-2026,SMS Settings – Sent.dm,Admin Panel,Error when saving Sent.dm SMS provider settings,"Saving the SMS provider in the Admin Panel repeatedly returns an error. The client wants Sent.dm integrated (Sender ID: iSERVU, API URL: https://api.sent.dm/).","1. Log in to the Admin Panel
+2. Open SMS Settings and choose Sent.dm
+3. Enter the API key, Sender ID and API URL
+4. Click Save","Sent.dm settings should save and activate without errors, and SMS should go out through Sent.dm with the iSERVU Sender ID.",An error is returned and the settings are not saved.,Major,High,Closed,Fixed,https://prnt.sc/gzpSG0bIKld1 
+AD-19,15-Nov-2026,Broadcast Push Notifications,Admin Panel,Broadcast push notification fails with an error,Sending a broadcast push notification from the Admin Panel returns an error and nothing is sent.,"1. Log in to the Admin Panel
+2. Open Broadcast
+3. Compose a notification, choose recipients and send","The broadcast should be sent to the selected group, once per recipient.",An error is returned; nothing is sent.,Major,High,Closed,Fixed,"https://prnt.sc/9Mgt0kHog_sX 
+https://prnt.sc/O_rp_HfsW60w "

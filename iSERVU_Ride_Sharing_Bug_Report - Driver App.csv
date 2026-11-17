@@ -1,0 +1,72 @@
+iSERVU Ride Sharing Project — Bug Report,,,,,,,,,,,,,
+Driver App  ·  Driver App (iOS & Android)  ,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Bug ID,Reported Date,Module,Platform,Bug Title,Description,Steps to Reproduce,Expected Result,Actual Result,Severity,Priority,QA Status,DEV Status,Attachment
+DA-01,16-Aug-2026,Ride Requests,iOS & Android,Driver App does not receive ride requests,"Online drivers do not receive ride requests. First reported on iOS, then for both iOS and Android.","1. Log in to the Driver App as an approved driver and go online
+2. From the Rider App, request a ride near the driver
+3. Observe the Driver App",Online drivers should always receive incoming ride requests on iOS and Android.,No ride request reaches the driver.,Critical,High,Closed,Fixed,
+DA-02,16-Aug-2026,Notifications,Driver App,Incorrect driver approval / reactivation notification text,"When an admin approves a driver, the notification text is wrong. Reactivation also needs its own message.","1. Register as a new driver
+2. Approve the driver from the Admin Panel and check the notification
+3. Deactivate and reactivate the driver and check again","Approval: ""Your account has been approved"". Reactivation: ""Your account has been reactivated"".",An incorrect message is shown on approval.,Minor,Medium,Closed,Fixed,
+DA-03,16-Aug-2026,Ride Requests / Stability,iOS,Ride requests arrive intermittently and app crashes after accepting,"On the iOS Driver App, ride requests arrive only sometimes. After accepting a request the app crashes and the driver cannot start the trip.","1. Log in to the iOS Driver App and go online
+2. Send several ride requests from the Rider App
+3. Accept a request
+4. Try to start the trip","Every ride request should arrive, and accepting it should open the trip screen so the driver can start the trip.",Requests arrive intermittently; the app crashes after accepting.,Critical,High,Closed,Fixed,
+DA-04,18-Aug-2026,Registration – Document Labels,iOS & Android,Raw keys / abbreviations shown as document labels,"Driver registration document labels show raw keys and abbreviations: ""driving_license"", ""vehicle_registration"", ""vehicle_photo"", ""nid"", ""NID Front"", ""NID Back"".","1. Start driver registration in the Driver App
+2. Go to the document upload step
+3. Read the labels","Labels should read: Drivers License, Vehicle Registration, Vehicle Photo, National ID, National ID Front, National ID Back.",Raw keys / abbreviations are shown.,Minor,Low,Closed,Fixed,
+DA-05,20-Aug-2026,Ride Numbers,Driver App,Driver notifications still show old default ride numbers,"After the ride number change (RR → ISU), Driver App notifications still show the old default numbers.","1. Create a ride from the Rider App
+2. Check the ride notification in the Driver App
+3. Compare the ride number with the new format",Notifications should use the new format (e.g. ISU-00253).,Notifications show the old default ride number.,Minor,Medium,Closed,Fixed,
+DA-06,20-Aug-2026,Chat – Notifications,Driver App,No notification for new chat messages in Driver App,"The Driver App does not notify the driver about new chat messages, while the Rider App does.","1. Start a ride and open chat
+2. Send a message from the Rider App while the driver is not on the chat screen
+3. Observe the Driver App","The driver should get a message notification, the same as the Rider App.",No notification is shown.,Major,Medium,Closed,Fixed,
+DA-07,20-Aug-2026,Trip – Comment Field,Driver App,Optional comment text input has disappeared,The optional comment text input section is no longer shown in the Driver App.,"1. Log in to the Driver App
+2. Go to the screen that previously showed the optional comment field
+3. Look for the comment input",The optional comment input should be visible and usable.,The comment input is missing.,Major,Medium,Closed,Fixed,
+DA-08,06-Sep-2026,Parcel Delivery,iOS & Android,Sender name missing on parcel delivery,"When delivering a parcel, the driver cannot see the sender's name.","1. Send a parcel from the Rider App
+2. Accept it in the Driver App
+3. Open the delivery details",The sender's name should be shown to the driver.,The sender name is not shown.,Major,High,Closed,Fixed,
+DA-09,06-Sep-2026,Parcel Delivery – Earnings,Driver App,Driver earnings not credited after parcel delivery,"After completing a parcel delivery, the driver does not receive the delivery earnings.","1. Accept and complete a parcel delivery in the Driver App
+2. Check driver earnings / wallet",Delivery earnings should be credited after completion.,No earnings are credited.,Critical,High,Closed,Fixed,
+DA-10,06-Sep-2026,Dues,Driver App,Driver cannot complete cash/wallet rides without wallet balance,Drivers with insufficient wallet balance are blocked from completing cash or wallet rides.,"1. Log in as a driver with zero or low wallet balance
+2. Accept a cash or wallet ride
+3. Try to complete the trip","The driver should be able to complete the trip, with the trip amount credited to driver dues.",The trip cannot be completed.,Major,High,Closed,Fixed,
+DA-11,13-Sep-2026,Notifications,Android & iOS,"""Mark all read"" button missing in Driver App notifications","The Driver App notifications screen has no ""Mark all read"" button.","1. Log in to the Driver App
+2. Open Notifications
+3. Look for ""Mark all read""","A ""Mark all read"" button should be available on Android and iOS.",The button is missing.,Minor,Medium,Closed,Fixed,
+DA-12,13-Sep-2026,Driver Stats,Driver App,Driver performance stats are not working,The performance statistics section of the Driver App does not show correct data.,"1. Log in as a driver with completed trips
+2. Open Performance / Stats
+3. Review the values",Stats should show correct values based on the driver's trips.,Stats are not working.,Major,Medium,Closed,Fixed,
+DA-13,20-Sep-2026,Driver Profile,Driver App,Mobile number not shown in Driver Edit Profile,"The Driver App Edit Profile page does not show the driver's mobile number, unlike the Rider App.","1. Log in to the Driver App
+2. Open Profile → Edit Profile
+3. Look for the mobile number","The mobile number should be shown read-only, same as the Rider App.",The mobile number is not shown.,Minor,Low,Closed,Fixed,
+DA-14,27-Sep-2026,Scheduled Rides – Dispatch,Driver App,Scheduled ride is not triggered on the Driver App at the scheduled time,"When a rider schedules a ride for a specific date and time, no ride request or trip screen appears in the Driver App when that time arrives.","1. In the Rider App, schedule a ride a few minutes ahead
+2. Keep an eligible driver online
+3. Wait until the scheduled time
+4. Observe the Driver App","At the scheduled time the ride should be dispatched to the right available driver(s) (background job/queue, time zone and push delivery all working).",No request or trip screen is triggered; the driver keeps waiting.,Critical,High,Closed,Fixed,https://prnt.sc/xPbvpczgZa8e
+DA-15,27-Sep-2026,Scheduled Rides – Ride Card,Driver App,Scheduled ride card is not clickable and lacks trip details,Drivers see the scheduled ride card but cannot open it to review the trip. Key details such as Rider Name are missing.,"1. Schedule a ride from the Rider App
+2. In the Driver App, open Scheduled Rides
+3. Tap the scheduled ride card","The card should open a full preview: rider name and rating, pickup & drop-off, route map, date/time, estimated distance and time, payment type, earnings and stops.",The card is not clickable and the rider name is missing.,Major,High,Closed,Fixed,"https://prnt.sc/k7R0EL5SK5FF
+https://prnt.sc/4yU9zH-FRWa3"
+DA-16,27-Sep-2026,Screen Orientation,iOS & Android,Driver App layout breaks when rotated to landscape,"The Driver App can switch to landscape, and the layout then displays incorrectly.","1. Open the Driver App
+2. Rotate the device to landscape on several screens
+3. Observe the layout",The app should be locked to portrait and stay stable on rotation (Android and iOS).,The app switches to landscape and the layout breaks.,Minor,Medium,Closed,Fixed,
+DA-17,27-Sep-2026,Wallet UI,Driver App,Wallet balance is not displayed in the Driver App,"The Driver App does not show the driver's current wallet balance, which the Rider App shows.","1. Log in to the Driver App
+2. Look for the wallet balance where the Rider App shows it",Wallet balance should appear in the same position and style as the Rider App and update on every wallet change.,No wallet balance is displayed.,Major,High,Closed,Fixed,"https://prnt.sc/TJa46BXIQdQ0 
+https://prnt.sc/_gr8j3tz5OH7 "
+DA-18,28-Sep-2026,Performance – Cancellation Rate,iOS & Android,Cancellation rate ignores rides cancelled or rejected by the driver,"When a driver cancels or rejects a ride, it is not counted in the cancellation statistics.","1. Note the current Cancellation Rate in the Driver App
+2. Reject or cancel one or more rides
+3. Check the Cancellation Rate again","Every ride cancelled or rejected by the driver should be counted, and the rate recalculated and displayed correctly.",The Cancellation Rate does not change.,Major,High,Closed,Fixed,https://prnt.sc/NxLX5UdJ8PJL 
+DA-19,30-Sep-2026,Help Center,iOS & Android,Help Center does not open in the Driver App,Tapping Help Center in the Driver App does nothing on iOS and Android.,"1. Log in to the Driver App
+2. Tap Help Center",The Help Center should open and work on iOS and Android.,The Help Center does not open.,Major,High,Closed,Fixed,https://prnt.sc/8CnjP9k7-Maj 
+DA-20,30-Sep-2026,Rating Page,iOS & Android,Driver Rating page UI changed unexpectedly; star rating not enforced,"The Driver Rating page UI changed in the latest update. The client wants the previous design back, with the star rating required before the trip can end.","1. Complete a trip in the Driver App
+2. Observe the Rating page design
+3. Try to submit without selecting a star rating","Previous Rating page UI restored. Submission is blocked until a star rating is selected, with a small validation toast (same as the Rider App).",A new UI is shown instead of the previous design.,Major,High,Closed,Fixed,https://prnt.sc/oPVVVOJw_aBL 
+DA-21,06-Oct-2026,Traffic Alerts,iOS,Traffic Alerts missing on iOS Driver App; alert effect not added,Traffic Alerts work on the Android Driver App but do not appear on iOS. The requested subtle shimmer / pulsing glow effect has not been added either.,"1. Configure an active traffic period in the Admin Panel
+2. Open the Driver App on iOS and Android during that period
+3. Compare the alerts","Alerts should work on iOS and Android, with a subtle shimmer / pulsing glow on the box, text and icon.",No alert on iOS; no visual effect on the alert.,Major,High,Closed,Fixed,https://prnt.sc/6wfiNG7fjhIV 
+DA-22,03-Nov-2026,Google Sign-In,iOS,Google Sign-In fails on the iOS Driver App release build,"In the iOS Driver App build submitted for App Store review (and in TestFlight), logging in with Google returns an error. This can block App Store approval and stop drivers from logging in.","1. Install the iOS Driver App TestFlight / release build
+2. Tap ""Sign in with Google""
+3. Choose a Google account","Google login should succeed in TestFlight and production builds, including the App Store review build.",An error is returned and login does not complete.,Critical,High,Reopened,Guidelines Sent,"https://prnt.sc/2RJiexEDg7cv 
+https://prnt.sc/GyUc3CRTbbJm "

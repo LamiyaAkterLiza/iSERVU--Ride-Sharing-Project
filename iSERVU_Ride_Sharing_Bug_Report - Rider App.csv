@@ -1,0 +1,91 @@
+iSERVU Ride Sharing Project — Bug Report,,,,,,,,,,,,,
+Rider App  ·  Rider App (iOS & Android)  ,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Bug ID,Reported Date,Module,Platform,Bug Title,Description,Steps to Reproduce,Expected Result,Actual Result,Severity,Priority,QA Status,DEV Status,Attachment
+RA-01,16-Aug-2026,Pricing,iOS & Android,Trip fares do not match the pricing configured in the Admin Panel,Trip prices shown in the Rider App are not aligned with the fare settings in the admin dashboard. Fares appear static instead of being calculated dynamically from admin pricing.,"1. In the Admin Panel, set or update the fare settings for a vehicle type
+2. Open the Rider App (iOS / Android)
+3. Enter a pickup and drop-off location
+4. Compare the fare shown for that vehicle type with the admin configuration",Trip fares should be calculated dynamically from the pricing configured in the Admin Panel and update whenever admin pricing changes.,The fare displayed in the Rider App does not match the Admin Panel pricing.,Major,High,Closed,Fixed,
+RA-02,18-Aug-2026,Invoices,Rider App,"""Download PDF"" opens a wrong page instead of the ride invoice","On a completed ride, tapping Download PDF opens an incorrect page, so riders cannot download their ride invoice.","1. Log in to the Rider App
+2. Go to Trip History and open a completed ride
+3. Tap ""Download PDF""
+4. Observe the result",The ride invoice should be generated and downloaded as a PDF.,A wrong page opens and the invoice is not downloaded.,Major,High,Closed,Fixed,
+RA-03,18-Aug-2026,Ride Screen – Call,Rider App,Call button does not call the assigned driver,"During an active ride, the Call button on the ride screen does not place a call to the driver.","1. Book a ride from the Rider App
+2. Wait for a driver to accept
+3. On the ride screen, tap Call
+4. Observe the result",Tapping Call should open the phone dialer / place a call to the assigned driver.,Nothing happens; the rider cannot call the driver.,Major,High,Closed,Fixed,
+RA-04,19-Aug-2026,Payment Gateway,Rider App,Card payment step is bypassed – card trips complete without payment,"When Card is selected, the Fygaro payment gateway does not open. The payment step is skipped and the trip completes without any payment being collected.","1. Enter pickup and drop-off in the Rider App
+2. Select Card as the payment method
+3. Tap Confirm Ride and observe whether the gateway opens
+4. Let the driver start and complete the trip",Flow should be: Confirm Ride → Fygaro Payment → Payment Success → Ride Confirmed → Driver Starts Ride. The ride must not be confirmed until payment succeeds.,The gateway does not open; the trip is confirmed and completed without payment.,Critical,High,Closed,Fixed,
+RA-05,19-Aug-2026,Points & Rewards,Rider App,Points & Rewards feature is not working,The Points & Rewards section in the Rider App does not work; riders do not earn or see reward points.,"1. Log in to the Rider App
+2. Complete a ride or refer a friend
+3. Open Points & Rewards and check the balance",Points should be credited per the configured rules and shown in Points & Rewards.,The feature does not work and no points are shown.,Major,Medium,Closed,Fixed,
+RA-06,19-Aug-2026,Branding,Rider App,"""Refer and Earn"" caption shows old brand name ""ReadyRide""","The Refer and Earn caption still displays ""ReadyRide"" instead of ""iSERVU"".","1. Log in to the Rider App
+2. Open Refer and Earn
+3. Read the caption","The caption should display ""iSERVU"".","The caption displays ""ReadyRide"".",Minor,Medium,Closed,Fixed,
+RA-07,19-Aug-2026,Saved Places,Rider App,Favourite locations / saved places are not saved,"When a rider adds a favourite location or saved place, it is not stored and does not appear in the list.","1. Log in to the Rider App
+2. Go to Saved Places / Favourites
+3. Add a location and save
+4. Re-open Saved Places",The location should be stored and listed under Saved Places.,The location is not saved.,Major,Medium,Closed,Fixed,
+RA-08,26-Aug-2026,UI – Sidebar,iOS & Android,Sidebar panel layout breaks in landscape mode,The side bar (drawer) breaks when the device is in landscape mode.,"1. Open the Rider App
+2. Rotate the device to landscape
+3. Open the side bar menu
+4. Observe the layout","The sidebar should display correctly in portrait and landscape, matching the Driver App sidebar in landscape.",The sidebar layout breaks in landscape.,Major,Medium,Closed,Fixed,
+RA-09,06-Sep-2026,Wallet,iOS & Android,Wallet balance is not deducted after a trip paid with Wallet,"When a trip is paid with Wallet, the fare is not deducted from the wallet balance after the trip completes.","1. Log in as a rider with wallet balance (e.g. $1000)
+2. Book a ride and select Wallet
+3. Complete the trip (e.g. $100 fare)
+4. Check the wallet balance",The fare should be deducted after trip completion (e.g. $1000 − $100 = $900).,The balance stays at $1000.,Critical,High,Closed,Fixed,
+RA-10,10-Sep-2026,Parcel Delivery – Payment,Rider App,Card payment gateway does not appear for parcel delivery,"When Card is selected for a parcel delivery, no payment gateway is shown, so the request is sent without payment.","1. Select Parcel in the Rider App
+2. Enter sender, receiver and parcel details
+3. Select Card as payment
+4. Send the request","The card gateway should appear before the request is sent, the same as card ride bookings.",No gateway appears and the rider pays nothing.,Critical,High,Closed,Fixed,
+RA-11,10-Sep-2026,Localization,Android,French / Spanish not available as a language option (Android),French and Spanish cannot be selected in the language settings of the Android Rider App.,"1. Open the Android Rider App
+2. Go to Settings → Language
+3. Check the available languages",French and Spanish should be listed and selectable.,French and Spanish are not available.,Major,High,Closed,Fixed,
+RA-12,13-Sep-2026,Payment,Rider App,Card payment amount differs between payment pages,"For a card payment, the online payment page shows one amount while the secure payment gateway page shows a different amount.","1. Book a ride with Card as payment
+2. Note the amount on the online payment page
+3. Continue to the secure payment gateway page
+4. Compare the amounts",The same trip amount should be shown on every payment page and charged on the gateway.,The two pages show different amounts.,Critical,High,Closed,Fixed,
+RA-13,14-Sep-2026,Pricing,iOS,iOS trip prices do not match Android trip prices,"For the same route and vehicle type, the iOS Rider App shows a different fare from the Android Rider App.","1. Enter the same pickup and drop-off on the iOS and Android Rider Apps
+2. Select the same vehicle type
+3. Compare the fares",Fares should be identical on iOS and Android.,iOS fares differ from Android fares.,Major,High,Closed,Fixed,
+RA-14,17-Sep-2026,AI Smart Suggest – Estimates,Rider App,Ride option time and distance estimates are inaccurate,"Ride option estimates (minutes away / distance away) are wrong, e.g. Sedan shows ""1 min / 0.00 km"" and SUV is also incorrect.","1. Open the Rider App in any location
+2. Enter pickup and drop-off
+3. Check the time and distance shown for each ride option",Estimates should be accurate for every ride option in any location worldwide.,Estimates are incorrect (e.g. Sedan: 1 min / 0.00 km).,Major,High,Closed,Fixed,
+RA-15,27-Sep-2026,Ride Details,Rider App,"Stop text shows ""1 stop(s) on the way"" instead of ""1 stop added""","Ride details show ""1 stop(s) on the way"", which is not the wording the client expects.","1. Book a ride and add one or more stops
+2. Open the ride details
+3. Read the stops text","Text should read ""1 stop added"", with correct plural wording for more stops (e.g. ""2 stops added"") in both Rider and Driver apps.","Text reads ""1 stop(s) on the way"".",Minor,High,Closed,Fixed,https://prnt.sc/t9OCxucI-Ms- 
+RA-16,27-Sep-2026,Trip Details UI,Rider App,"Trip labels, ""Driver"" label and Trip Number missing in Rider App","The Rider App does not show the trip labels, ""Driver"" label and Trip Number that the Driver App displays.","1. Book a ride in the Rider App
+2. Open the trip details
+3. Compare with the same trip in the Driver App","The Rider App should show the same trip labels, ""Driver"" label and Trip Number in the same positions and style as the Driver App.",The labels and Trip Number are missing.,Minor,High,Closed,Fixed,"https://prnt.sc/BLqZFNP-mXvB 
+https://prnt.sc/UkF6RwIjWwWP "
+RA-17,27-Sep-2026,Scheduled Ride – Card Payment,Rider App,Card-paid scheduled ride starts searching for a driver immediately,"When a scheduled ride is paid by credit/debit card, the app follows the Ride Now flow and starts driver search right away. The same scheduled ride paid by Wallet works correctly.","1. In the Rider App, choose Schedule and pick a future date and time
+2. Select Card as payment
+3. Complete the card payment
+4. Observe the screen after payment","Ride Now: start driver search after card payment. Scheduled Ride: do not search; confirm the booking, show a confirmation toast and redirect to Scheduled Rides (same as Wallet payment).","The app starts searching for a driver immediately, as for an on-demand ride.",Critical,High,Closed,Fixed,"https://prnt.sc/h7jQVSekJq4i 
+https://prnt.sc/gYNq1a5vRVcB 
+https://prnt.sc/SCD6BKZ3mH2N 
+Video: https://drive.google.com/file/d/1oeWeFhJxjdegZg5STE2hf3wSZ23vs-OG/view?usp=sharing "
+RA-18,28-Sep-2026,Stability,iOS & Android,Rider App crashes intermittently,The Rider App still crashes occasionally; the crash is intermittent and happens in different actions and flows.,"1. Use the Rider App across the main flows (login, booking, payment, trip, history)
+2. Repeat over several sessions
+3. Watch for unexpected app closure",The app should run without crashes in every flow on iOS and Android.,The app crashes intermittently.,Critical,High,Closed,Fixed,
+RA-19,03-Oct-2026,Service Selection,Rider App,Service selected on Home Page is not carried over to the Ride Page,"When a rider picks a service (e.g. Chauffeur, Yours, Tours) on the Home Page and continues, the selection is lost and Sedan is selected by default.","1. Open the Rider App Home Page
+2. Select Chauffeur (or Yours / Tours)
+3. Continue to the Ride Page
+4. Check the selected service","The Home Page selection should stay selected on the Ride Page (Tours → Tours, Chauffeur → Chauffeur, Yours → Yours, and so on).",Sedan is always selected by default.,Major,High,Closed,Fixed,"https://prnt.sc/e-8GRM6i5pLS 
+https://prnt.sc/OS1MlR1WJ8FH 
+https://prnt.sc/_kfgs_u2vfYr 
+https://prnt.sc/269dRCfJ6QKf "
+RA-20,03-Oct-2026,Home Page – Service UI,Rider App,Two service boxes on the Home Page are larger than the others,"Two service boxes on the Rider Home Page are bigger than the rest, making the section look inconsistent.","1. Open the Rider App Home Page
+2. Observe the service boxes","All service boxes should have the same size, spacing and alignment.",Two boxes are larger than the others.,Minor,High,Closed,Fixed,https://prnt.sc/_3ogCvP0dJad 
+RA-21,06-Oct-2026,Stability – Banner Loading,iOS,iOS Rider App crash while loading banner image (Crashlytics),"Firebase Crashlytics reported a Flutter ClientException ""Connection closed while receiving data"" in the iOS Rider App (com.isu.rider) while loading a banner image from /storage/banners/. The failed request is not handled.","1. Open the iOS Rider App on a slow or unstable network
+2. Let the Home Page load banner images
+3. Interrupt the network while banners load
+4. Observe the app and Crashlytics","A failed, slow or interrupted banner request should not crash the app; a placeholder image should be shown and the app should keep working.",The request fails with ClientException and the app becomes unstable / crashes.,Critical,High,Closed,Fixed,https://prnt.sc/br1sbYbv-yAf 
+RA-22,08-Nov-2026,Email Receipt – Add Stop Waiting,Rider App,Rider email receipt rounds up Add Stop waiting time and charge,"The rider email receipt rounds partial waiting minutes up, e.g. a 1:01 wait is shown and charged as 2 minutes.","1. Book a ride with an added stop
+2. As the driver, wait at the stop for 1 min 1 sec, then continue
+3. Complete the trip
+4. Open the rider email receipt","Receipt should show completed billable minutes only (1:01 = 1 min, 5:00 = 5 min, 5:59 = 5 min). Wait time, fee and total must match the apps and trip records.",A 1:01 wait is shown and charged as 2 minutes.,Major,High,Closed,Fixed,https://prnt.sc/-2pULw2xoPfv 
+RA-23,11-Nov-2026,Broadcast Push Notifications,iOS,One broadcast notification is delivered 4 times on the iOS Rider App,A single broadcast push from the Admin Panel arrives four times on the iOS Rider App. The Driver App receives it once.,"1. In the Admin Panel, send a broadcast to riders
+2. Check an iOS Rider App device with the app in foreground, background and closed",Each broadcast should be delivered once per recipient/device; Driver App behaviour must stay unchanged.,The iOS Rider App shows the same notification 4 times.,Major,High,Closed,Fixed,Video: https://drive.google.com/file/d/1lBkplgbQE6bu9EqSkIJYbQz-1TbYODU0/view?usp=sharing 
